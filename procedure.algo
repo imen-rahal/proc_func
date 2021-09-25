@@ -1,0 +1,31 @@
+PROCEDURE dot_product(resultat : FLOAT, vect_1 : ARRAY_OF FLOAT[10], vect_2 : ARRAY_OF FLOAT[10])
+VAR
+    i : INTEGER;
+BEGIN
+    resultat := 0.0;
+    FOR i FROM 0 TO vect_1.length-1 STEP 1  DO
+        resultat := resultat + vect_1[i] * vect_2[i];
+    END_FOR
+END
+
+ALGORITHM main
+VAR
+    i : INTEGER;
+    vect_2, vect_1 : ARRAY_OF FLOAT[10];
+    resultat : FLOAT
+BEGIN
+ FOR i FROM 0 TO vect_1.length-1 STEP 1  DO
+        read(vect_1[i]);
+    END_FOR
+        FOR i FROM 0 TO vect_2.length-1 STEP 1  DO
+        read(vect_2[i]);
+    END_FOR
+    dot_product(vect_1, vect_2, resultat);
+    write("n couples de vecteurs sont");
+    read(nbr);
+    IF (resultat == 0) THEN
+        write("les vexteurs sont orthogonaux");
+        else
+        write("les vexteurs ne sont pas orthogonaux");
+    END_IF
+END
